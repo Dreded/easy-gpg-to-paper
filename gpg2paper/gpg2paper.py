@@ -129,16 +129,18 @@ def import_from_b64(pubkey_path, private_bytes):
     """
     Imports the private GPG key to the gpg key ring.
     """
-
-    paperkey = subprocess.Popen(args=['paperkey', '--pubring', pubkey_path],
+    
+    paperkey = subprocess.Popen(args=['paperkey', '--pubring', pubkey_path, '-o', 'tempgpg.gpgtemp'],
                                 stdin=subprocess.PIPE,
                                 stdout=subprocess.PIPE)
     (paperkey_stdout, _) = paperkey.communicate(private_bytes)
-    gpg = subprocess.Popen(args=['gpg', '--import'],
-                           stdin=subprocess.PIPE,
-                           stdout=subprocess.PIPE,
+    gpg = subprocess.Popen(args=['gpg','--import', 'tempgpg.gpgtemp'],
+			   stdout=subprocess.PIPE,
                            stderr=subprocess.PIPE)
-    return gpg.communicate(paperkey_stdout)
+    (gpg_stdout, gpg_stderr) = gpg.communicate()
+    os.remove('tempgpg.gpgtemp')
+    print(gpg_stdout)
+    return gpg_stderr
 
 
 def read_chunks_png(in_filenames):
@@ -148,7 +150,7 @@ def read_chunks_png(in_filenames):
 
     base64str = b''
     for in_filename in in_filenames:
-        chunk = subprocess.check_output(['zbarimg', '--raw', in_filename])
+        chunk = subprocess.check_output(['zbarimg', '--nodbus', '--raw', in_filename])
         base64str += chunk
     return base64str
 

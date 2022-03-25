@@ -21,7 +21,7 @@ up, and more features added. Anyone who wants to help out is more than welcome.
 
 ```
 > sudo apt-get install paperkey zbar-tools && pip install pillow qrcode
-> git clone https://github.com/cojomojo/easy-gpg-to-paper.git && cd easy-gpg-to-paper
+> git clone https://github.com/Dreded/easy-gpg-to-paper.git && cd easy-gpg-to-paper
 > sudo cp gpg2paper/gpg2paper.py  /usr/local/bin
 ```
 
@@ -88,7 +88,7 @@ Passphrase protected keys are output in their passphrase protected form.
 
 ```
 > sudo apt-get install paperkey zbar-tools && pip install pillow qrcode
-> git clone https://github.com/cojomojo/easy-gpg-to-paper.git && cd easy-gpg-to-paper
+> git clone https://github.com/Dreded/easy-gpg-to-paper.git && cd easy-gpg-to-paper
 > pip install . pytest
 ```
 
@@ -96,7 +96,7 @@ Passphrase protected keys are output in their passphrase protected form.
 
 ```
 > brew install paperkey zbar && pip install pillow qrcode
-> git clone https://github.com/cojomojo/easy-gpg-to-paper.git && cd easy-gpg-to-paper
+> git clone https://github.com/Dreded/easy-gpg-to-paper.git && cd easy-gpg-to-paper
 > pip install . pytest
 ```
 

@@ -29,7 +29,7 @@ up, and more features added. Anyone who wants to help out is more than welcome.
 
 ```
 > brew install paperkey zbar && pip install pillow qrcode
-> git clone https://github.com/cojomojo/easy-gpg-to-paper.git && cd easy-gpg-to-paper
+> git clone https://github.com/Dreded/easy-gpg-to-paper.git && cd easy-gpg-to-paper
 > sudo cp gpg2paper/gpg2paper.py  /usr/local/bin
 ```
 
